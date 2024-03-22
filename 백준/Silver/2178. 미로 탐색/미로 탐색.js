@@ -17,7 +17,9 @@ for (let i = 0; i < N; i++) {
 // 풀이
 const dRow = [-1, 0, 1, 0];
 const dCol = [0, 1, 0, -1];
-const dis = Array.from(new Array(N), () => new Array(M).fill(0)); // N X M 크기의 2차원 배열 생성(모두 0으로 초기화)
+
+// N X M 크기의 2차원 배열 생성(모두 0으로 초기화)
+const dis = Array.from(new Array(N), () => new Array(M).fill(0));
 
 function BFS(row, col) {
   const queue = [];
@@ -30,12 +32,13 @@ function BFS(row, col) {
       const nextRow = currentRow + dRow[i];
       const nextCol = currentCol + dCol[i];
 
+      // 갈 수 있는 통로라면
       if (
         nextRow >= 0 &&
         nextRow < N &&
         nextCol >= 0 &&
         nextCol < M &&
-        board[nextRow][nextCol] === 1 // 갈 수 있는 통로라면
+        board[nextRow][nextCol] === 1
       ) {
         queue.push([nextRow, nextCol]);
         board[nextRow][nextCol] = 0;
