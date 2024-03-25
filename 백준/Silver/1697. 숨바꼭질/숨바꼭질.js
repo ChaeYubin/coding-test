@@ -1,15 +1,14 @@
 const fs = require("fs");
 
 // TODO: 제출 시 경로 변환 필수 ("/dev/stdin")
-const input = fs.readFileSync(0, "utf-8").trim().split(" ");
-// const input = fs.readFileSync("input.txt").toString().trim().split(" ");
+const input = fs.readFileSync("/dev/stdin").toString().trim().split(" ");
+
 
 // 정리
 const [n, k] = input.map(Number);
 const visit = Array.from({ length: 100001 }, () => 0);
 
 // 풀이
-
 function bfs() {
   const queue = [];
   queue.push([n, 0]);
